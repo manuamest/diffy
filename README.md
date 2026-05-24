@@ -14,7 +14,9 @@
 
 Diffy is a lightweight, incredibly fast, and beautiful code comparison tool built to run entirely on the client side. No servers, no installation, just drop your code and see the diff instantly.
 
-![Diffy Screenshot](./assets/screenshot.png)
+![Diffy Demo](./assets/demo.gif)
+
+*(Note: Record a short screen capture of Diffy in action, convert it to a `.gif`, and save it as `demo.gif` in the `assets/` folder to display it here. Alternatively, you can edit this file directly on the GitHub website and drag-and-drop an `.mp4` video!)*
 
 ## How it works
 

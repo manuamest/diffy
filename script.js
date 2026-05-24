@@ -24,7 +24,7 @@ function syncEditorPadding() {
     if (!diffEditor) return;
 
     const toolbar = document.getElementById('toolbar');
-    const toolbarOffset = toolbar ? toolbar.offsetTop + toolbar.offsetHeight + 18 : 96;
+    const toolbarOffset = toolbar ? toolbar.offsetTop + toolbar.offsetHeight + 40 : 120;
 
     diffEditor.updateOptions({
         padding: { top: toolbarOffset }
@@ -153,8 +153,11 @@ require(['vs/editor/editor.main'], function() {
     }
 
     // 3. Create the models for left (original) and right (modified) sides
-    const originalModel = monaco.editor.createModel(defaultOriginal, 'javascript');
-    const modifiedModel = monaco.editor.createModel(defaultModified, 'javascript');
+    // Only load example code if DEV_MODE is true in the local env.js file
+    const isDevMode = typeof window !== 'undefined' && window.ENV && window.ENV.DEV_MODE === true;
+    
+    const originalModel = monaco.editor.createModel(isDevMode ? defaultOriginal : '', 'javascript');
+    const modifiedModel = monaco.editor.createModel(isDevMode ? defaultModified : '', 'javascript');
     
     diffEditor.setModel({
         original: originalModel,

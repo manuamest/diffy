@@ -53,6 +53,15 @@
                 </svg>
                 <span>Inline View</span>
             </button>
+            <button id="toggle-minimap-btn" class="btn btn-quiet" aria-pressed="false">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+                    <line x1="8" y1="7" x2="14" y2="7"></line>
+                    <line x1="8" y1="11" x2="16" y2="11"></line>
+                    <line x1="8" y1="15" x2="13" y2="15"></line>
+                </svg>
+                <span>Minimap Off</span>
+            </button>
             <button id="toggle-theme-btn" class="btn btn-quiet">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="5"></circle>
@@ -76,6 +85,9 @@
 
     <!-- The container where Monaco will be mounted -->
     <main id="editor-container"></main>
+
+    <!-- Optional Environment Config (Will 404 cleanly in production if missing) -->
+    <script src="env.js"></script>
 
     <!-- Monaco Editor Loader -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
