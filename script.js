@@ -139,10 +139,17 @@ require(['vs/editor/editor.main'], function() {
     });
 
     syncEditorPadding();
-    window.addEventListener('resize', syncEditorPadding);
+    
+    let resizeFrame;
+    const throttledSync = () => {
+        if (resizeFrame) cancelAnimationFrame(resizeFrame);
+        resizeFrame = requestAnimationFrame(syncEditorPadding);
+    };
+
+    window.addEventListener('resize', throttledSync);
 
     if ('ResizeObserver' in window) {
-        new ResizeObserver(syncEditorPadding).observe(document.getElementById('toolbar'));
+        new ResizeObserver(throttledSync).observe(document.getElementById('toolbar'));
     }
 
     // 3. Create the models for left (original) and right (modified) sides

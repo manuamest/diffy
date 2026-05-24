@@ -15,7 +15,6 @@
 Diffy is a lightweight, incredibly fast, and beautiful code comparison tool built to run entirely on the client side. No servers, no installation, just drop your code and see the diff instantly.
 
 ![Diffy Screenshot](./assets/screenshot.png)
-*(Note: Create an `assets` folder, take a screenshot of your app, save it as `screenshot.png` inside the folder, and it will appear here!)*
 
 ## How it works
 
