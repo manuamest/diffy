@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden; /* Monaco handles its own scrolling */
+    background-color: #121212; /* Deep premium dark */
+    color: #e0e0e0;
+}
+
+/* Glassmorphism Toolbar overlaying the editor */
+.glass-toolbar {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1400px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    background: rgba(30, 30, 30, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 10px 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    transition: all 0.3s ease;
+}
+
+.toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Light mode overrides for toolbar */
+body.light-mode .glass-toolbar {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand svg {
+    color: #61afef; /* Tech blue */
+}
+
+.brand h1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(79, 172, 254, 0.2);
+}
+
+.controls, .action-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 4px;
+}
+
+body.light-mode .divider {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}
+
+.btn-primary {
+    background: rgba(97, 175, 239, 0.15);
+    border-color: rgba(97, 175, 239, 0.3);
+    color: #61afef;
+    box-shadow: 0 0 10px rgba(97, 175, 239, 0.1);
+}
+
+.btn-primary:hover {
+    background: rgba(97, 175, 239, 0.25);
+    box-shadow: 0 4px 15px rgba(97, 175, 239, 0.3);
+}
+
+.btn-danger {
+    background: rgba(224, 108, 117, 0.1);
+    border-color: rgba(224, 108, 117, 0.2);
+    color: #e06c75;
+}
+
+.btn-danger:hover {
+    background: rgba(224, 108, 117, 0.2);
+    border-color: rgba(224, 108, 117, 0.4);
+    box-shadow: 0 4px 15px rgba(224, 108, 117, 0.2);
+}
+
+body.light-mode .btn {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+body.light-mode .btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .btn-primary {
+    background: rgba(0, 112, 201, 0.1);
+    border-color: rgba(0, 112, 201, 0.2);
+    color: #0070c9;
+}
+
+body.light-mode .btn-danger {
+    background: rgba(215, 0, 21, 0.1);
+    border-color: rgba(215, 0, 21, 0.2);
+    color: #d70015;
+}
+
+#editor-container {
+    width: 100vw;
+    height: 100vh;
+}

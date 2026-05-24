@@ -1,0 +1,9 @@
+# Antigravity/Agent files
+.agent/
+.agents/
+.antigravity-context.json
+skills-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
