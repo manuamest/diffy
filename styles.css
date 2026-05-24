@@ -11,8 +11,17 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow: hidden; /* Monaco handles its own scrolling */
-    background-color: #121212; /* Deep premium dark */
+    background:
+        radial-gradient(circle at 18% 0%, rgba(97, 175, 239, 0.12), transparent 34%),
+        linear-gradient(180deg, #121720 0%, #0f131a 100%);
     color: #e0e0e0;
+}
+
+body.light-mode {
+    background:
+        radial-gradient(circle at 18% 0%, rgba(0, 112, 201, 0.1), transparent 34%),
+        linear-gradient(180deg, #f4f8fc 0%, #edf2f7 100%);
+    color: #17202c;
 }
 
 /* Compact command deck overlaying the editor */
@@ -221,6 +230,35 @@ body.light-mode .btn-danger {
 #editor-container {
     width: 100vw;
     height: 100vh;
+}
+
+.monaco-diff-editor .diffOverview {
+    opacity: 0.75;
+}
+
+.monaco-editor .margin,
+.monaco-diff-editor .margin {
+    border-right: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+body.light-mode .monaco-editor .margin,
+body.light-mode .monaco-diff-editor .margin {
+    border-right-color: rgba(23, 32, 44, 0.06);
+}
+
+.monaco-split-view2 > .sash-container .monaco-sash.vertical::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(97, 175, 239, 0.34), transparent);
+    transform: translateX(-50%);
+}
+
+body.light-mode .monaco-split-view2 > .sash-container .monaco-sash.vertical::before {
+    background: linear-gradient(180deg, transparent, rgba(0, 112, 201, 0.24), transparent);
 }
 
 @media (max-width: 1040px) {
