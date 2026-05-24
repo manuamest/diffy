@@ -17,6 +17,17 @@ let diffEditor;
 let isDarkTheme = true;
 let isSplitView = true;
 
+function syncEditorPadding() {
+    if (!diffEditor) return;
+
+    const toolbar = document.getElementById('toolbar');
+    const toolbarOffset = toolbar ? toolbar.offsetTop + toolbar.offsetHeight + 18 : 96;
+
+    diffEditor.updateOptions({
+        padding: { top: toolbarOffset }
+    });
+}
+
 require(['vs/editor/editor.main'], function() {
     // 1. Initial default content to show the user how it works
     const defaultOriginal = `function calculateTotal(items) {
@@ -41,8 +52,15 @@ require(['vs/editor/editor.main'], function() {
         fontFamily: "'JetBrains Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace",
         fontSize: 14,
         minimap: { enabled: true },
-        padding: { top: 110 } // Give space for the floating toolbar, now larger
+        padding: { top: 96 }
     });
+
+    syncEditorPadding();
+    window.addEventListener('resize', syncEditorPadding);
+
+    if ('ResizeObserver' in window) {
+        new ResizeObserver(syncEditorPadding).observe(document.getElementById('toolbar'));
+    }
 
     // 3. Create the models for left (original) and right (modified) sides
     const originalModel = monaco.editor.createModel(defaultOriginal, 'javascript');
