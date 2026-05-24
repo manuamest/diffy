@@ -1,5 +1,112 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
+:root {
+    /* Background & Text */
+    --bg-main-top: #121720;
+    --bg-main-bottom: #0f131a;
+    --bg-radial: rgba(97, 175, 239, 0.12);
+    --text-main: #e0e0e0;
+    
+    /* Command Deck */
+    --deck-bg-gradient-1: rgba(34, 39, 52, 0.86);
+    --deck-bg-gradient-2: rgba(15, 17, 24, 0.76);
+    --deck-radial: rgba(97, 175, 239, 0.18);
+    --deck-border: rgba(255, 255, 255, 0.13);
+    --deck-shadow: rgba(0, 0, 0, 0.34);
+    --deck-shadow-inset: rgba(255, 255, 255, 0.08);
+    
+    /* Brand */
+    --brand-icon: #61afef;
+    --brand-icon-shadow: rgba(97, 175, 239, 0.35);
+    --brand-subtitle: #8b96a8;
+    
+    /* Editor Actions Group */
+    --action-bg: rgba(255, 255, 255, 0.045);
+    --action-border: rgba(255, 255, 255, 0.08);
+    
+    /* Generic Button */
+    --btn-text: #e0e0e0;
+    --btn-hover-bg: rgba(255, 255, 255, 0.1);
+    --btn-hover-border: rgba(255, 255, 255, 0.08);
+    --btn-focus-ring: rgba(97, 175, 239, 0.9);
+    
+    /* Primary Button */
+    --btn-primary-bg-1: rgba(97, 175, 239, 0.26);
+    --btn-primary-bg-2: rgba(0, 242, 254, 0.14);
+    --btn-primary-border: rgba(97, 175, 239, 0.28);
+    --btn-primary-text: #61afef;
+    --btn-primary-shadow: rgba(42, 122, 186, 0.14);
+    --btn-primary-shadow-inset: rgba(255, 255, 255, 0.1);
+    --btn-primary-hover-1: rgba(97, 175, 239, 0.34);
+    --btn-primary-hover-2: rgba(0, 242, 254, 0.18);
+    --btn-primary-hover-shadow: rgba(42, 122, 186, 0.24);
+    
+    /* Ghost & Quiet Buttons */
+    --btn-ghost-text: #aeb8c8;
+    --btn-quiet-text: #c8d0dc;
+    
+    /* Danger Button */
+    --btn-danger-bg: rgba(224, 108, 117, 0.11);
+    --btn-danger-border: rgba(224, 108, 117, 0.18);
+    --btn-danger-text: #e06c75;
+    --btn-danger-hover-bg: rgba(224, 108, 117, 0.2);
+    --btn-danger-hover-border: rgba(224, 108, 117, 0.4);
+    --btn-danger-hover-shadow: rgba(224, 108, 117, 0.2);
+    
+    /* Editor specific */
+    --editor-content-offset: 120px;
+    --margin-border: rgba(255, 255, 255, 0.035);
+    --sash-color: rgba(97, 175, 239, 0.34);
+}
+
+body.light-mode {
+    --bg-main-top: #f4f8fc;
+    --bg-main-bottom: #edf2f7;
+    --bg-radial: rgba(0, 112, 201, 0.1);
+    --text-main: #17202c;
+    
+    --deck-bg-gradient-1: rgba(255, 255, 255, 0.88);
+    --deck-bg-gradient-2: rgba(239, 244, 250, 0.78);
+    --deck-radial: rgba(0, 112, 201, 0.12);
+    --deck-border: rgba(18, 27, 38, 0.12);
+    --deck-shadow: rgba(22, 31, 46, 0.15);
+    --deck-shadow-inset: rgba(255, 255, 255, 0.72);
+    
+    --brand-icon-shadow: rgba(0, 112, 201, 0.2);
+    --brand-subtitle: #667285;
+    
+    --action-bg: rgba(17, 34, 51, 0.045);
+    --action-border: rgba(17, 34, 51, 0.08);
+    
+    --btn-text: #253143;
+    --btn-hover-bg: rgba(20, 34, 51, 0.08);
+    --btn-hover-border: rgba(20, 34, 51, 0.08);
+    --btn-focus-ring: rgba(0, 112, 201, 0.7);
+    
+    --btn-primary-bg-1: rgba(0, 112, 201, 0.14);
+    --btn-primary-bg-2: rgba(0, 177, 201, 0.1);
+    --btn-primary-border: rgba(0, 112, 201, 0.2);
+    --btn-primary-text: #0070c9;
+    --btn-primary-shadow: rgba(0, 112, 201, 0.1);
+    --btn-primary-shadow-inset: rgba(255, 255, 255, 0.5);
+    --btn-primary-hover-1: rgba(0, 112, 201, 0.22);
+    --btn-primary-hover-2: rgba(0, 177, 201, 0.15);
+    --btn-primary-hover-shadow: rgba(0, 112, 201, 0.18);
+    
+    --btn-ghost-text: #526070;
+    --btn-quiet-text: #526070;
+    
+    --btn-danger-bg: rgba(215, 0, 21, 0.1);
+    --btn-danger-border: rgba(215, 0, 21, 0.2);
+    --btn-danger-text: #d70015;
+    --btn-danger-hover-bg: rgba(215, 0, 21, 0.15);
+    --btn-danger-hover-border: rgba(215, 0, 21, 0.3);
+    --btn-danger-hover-shadow: rgba(215, 0, 21, 0.15);
+    
+    --margin-border: rgba(23, 32, 44, 0.06);
+    --sash-color: rgba(0, 112, 201, 0.24);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,9 +117,11 @@ body {
     font-family: 'IBM Plex Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow: hidden; /* Monaco handles its own scrolling */
-    background-color: #121212; /* Deep premium dark */
-    color: #e0e0e0;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 18% 0%, var(--bg-radial), transparent 34%),
+        linear-gradient(180deg, var(--bg-main-top) 0%, var(--bg-main-bottom) 100%);
+    color: var(--text-main);
 }
 
 /* Compact command deck overlaying the editor */
@@ -21,22 +130,22 @@ body {
     top: 18px;
     left: 50%;
     transform: translateX(-50%);
-    width: min(1180px, calc(100vw - 32px));
+    width: min(1320px, calc(100vw - 32px));
     z-index: 1000;
     display: grid;
-    grid-template-columns: minmax(190px, 0.75fr) auto minmax(330px, 1fr);
+    grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
     align-items: center;
     gap: 10px;
     
     background:
-        linear-gradient(135deg, rgba(34, 39, 52, 0.86), rgba(15, 17, 24, 0.76)),
-        radial-gradient(circle at 20% 0%, rgba(97, 175, 239, 0.18), transparent 38%);
+        linear-gradient(135deg, var(--deck-bg-gradient-1), var(--deck-bg-gradient-2)),
+        radial-gradient(circle at 20% 0%, var(--deck-radial), transparent 38%);
     backdrop-filter: blur(18px) saturate(150%);
     -webkit-backdrop-filter: blur(18px) saturate(150%);
-    border: 1px solid rgba(255, 255, 255, 0.13);
+    border: 1px solid var(--deck-border);
     border-radius: 18px;
     padding: 8px;
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 50px var(--deck-shadow), inset 0 1px 0 var(--deck-shadow-inset);
     
     transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
@@ -45,15 +154,6 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
-}
-
-body.light-mode .command-deck {
-    background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(239, 244, 250, 0.78)),
-        radial-gradient(circle at 20% 0%, rgba(0, 112, 201, 0.12), transparent 38%);
-    border-color: rgba(18, 27, 38, 0.12);
-    box-shadow: 0 18px 42px rgba(22, 31, 46, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.72);
-    color: #17202c;
 }
 
 .brand {
@@ -66,8 +166,8 @@ body.light-mode .command-deck {
 
 .brand svg {
     flex: 0 0 auto;
-    color: #61afef;
-    filter: drop-shadow(0 0 12px rgba(97, 175, 239, 0.35));
+    color: var(--brand-icon);
+    filter: drop-shadow(0 0 12px var(--brand-icon-shadow));
 }
 
 .brand h1 {
@@ -83,7 +183,7 @@ body.light-mode .command-deck {
 .brand span {
     display: block;
     margin-top: 4px;
-    color: #8b96a8;
+    color: var(--brand-subtitle);
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -92,32 +192,25 @@ body.light-mode .command-deck {
     white-space: nowrap;
 }
 
-body.light-mode .brand span {
-    color: #667285;
-}
-
 .edit-actions, .view-controls {
     display: flex;
     align-items: center;
     min-height: 44px;
     padding: 4px;
-    background: rgba(255, 255, 255, 0.045);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--action-bg);
+    border: 1px solid var(--action-border);
     border-radius: 14px;
 }
 
 .edit-actions {
+    display: grid;
+    grid-template-columns: minmax(132px, 1fr) auto minmax(132px, 1fr);
     justify-self: center;
+    min-width: min(460px, 100%);
 }
 
 .view-controls {
     justify-self: end;
-}
-
-body.light-mode .edit-actions,
-body.light-mode .view-controls {
-    background: rgba(17, 34, 51, 0.045);
-    border-color: rgba(17, 34, 51, 0.08);
 }
 
 .btn {
@@ -128,7 +221,7 @@ body.light-mode .view-controls {
     min-height: 34px;
     background: transparent;
     border: 1px solid transparent;
-    color: #e0e0e0;
+    color: var(--btn-text);
     padding: 8px 12px;
     border-radius: 10px;
     cursor: pointer;
@@ -145,8 +238,8 @@ body.light-mode .view-controls {
 }
 
 .btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.08);
+    background: var(--btn-hover-bg);
+    border-color: var(--btn-hover-border);
     transform: translateY(-1px);
 }
 
@@ -156,71 +249,88 @@ body.light-mode .view-controls {
 }
 
 .btn:focus-visible {
-    outline: 2px solid rgba(97, 175, 239, 0.9);
+    outline: 2px solid var(--btn-focus-ring);
     outline-offset: 2px;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, rgba(97, 175, 239, 0.26), rgba(0, 242, 254, 0.14));
-    border-color: rgba(97, 175, 239, 0.28);
-    color: #61afef;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 8px 22px rgba(42, 122, 186, 0.14);
+    background: linear-gradient(135deg, var(--btn-primary-bg-1), var(--btn-primary-bg-2));
+    border-color: var(--btn-primary-border);
+    color: var(--btn-primary-text);
+    box-shadow: inset 0 1px 0 var(--btn-primary-shadow-inset), 0 8px 22px var(--btn-primary-shadow);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, rgba(97, 175, 239, 0.34), rgba(0, 242, 254, 0.18));
-    box-shadow: 0 10px 26px rgba(42, 122, 186, 0.24);
+    background: linear-gradient(135deg, var(--btn-primary-hover-1), var(--btn-primary-hover-2));
+    box-shadow: 0 10px 26px var(--btn-primary-hover-shadow);
 }
 
 .btn-ghost {
-    color: #aeb8c8;
+    color: var(--btn-ghost-text);
 }
 
 .btn-quiet {
-    color: #c8d0dc;
+    color: var(--btn-quiet-text);
+}
+
+.btn[aria-pressed="true"] {
+    background: var(--btn-hover-bg);
+    border-color: var(--btn-primary-border);
+    color: var(--btn-primary-text);
 }
 
 .btn-danger {
-    background: rgba(224, 108, 117, 0.11);
-    border-color: rgba(224, 108, 117, 0.18);
-    color: #e06c75;
+    background: var(--btn-danger-bg);
+    border-color: var(--btn-danger-border);
+    color: var(--btn-danger-text);
 }
 
 .btn-danger:hover {
-    background: rgba(224, 108, 117, 0.2);
-    border-color: rgba(224, 108, 117, 0.4);
-    box-shadow: 0 4px 15px rgba(224, 108, 117, 0.2);
-}
-
-body.light-mode .btn {
-    color: #253143;
-}
-
-body.light-mode .btn:hover {
-    background: rgba(20, 34, 51, 0.08);
-    border-color: rgba(20, 34, 51, 0.08);
-}
-
-body.light-mode .btn-primary {
-    background: linear-gradient(135deg, rgba(0, 112, 201, 0.14), rgba(0, 177, 201, 0.1));
-    border-color: rgba(0, 112, 201, 0.2);
-    color: #0070c9;
-}
-
-body.light-mode .btn-ghost,
-body.light-mode .btn-quiet {
-    color: #526070;
-}
-
-body.light-mode .btn-danger {
-    background: rgba(215, 0, 21, 0.1);
-    border-color: rgba(215, 0, 21, 0.2);
-    color: #d70015;
+    background: var(--btn-danger-hover-bg);
+    border-color: var(--btn-danger-hover-border);
+    box-shadow: 0 4px 15px var(--btn-danger-hover-shadow);
 }
 
 #editor-container {
     width: 100vw;
     height: 100vh;
+}
+
+.monaco-diff-editor .diffOverview {
+    opacity: 0.75;
+}
+
+.monaco-editor .margin,
+.monaco-diff-editor .margin {
+    border-right: 1px solid var(--margin-border);
+}
+
+.monaco-split-view2 > .sash-container .monaco-sash.vertical::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--sash-color), transparent);
+    transform: translateX(-50%);
+}
+
+.monaco-diff-editor .modified-in-monaco-diff-editor .minimap {
+    top: var(--editor-content-offset) !important;
+    height: calc(100% - var(--editor-content-offset)) !important;
+    background: transparent !important;
+}
+
+.monaco-diff-editor .modified-in-monaco-diff-editor .minimap canvas {
+    opacity: 0.5;
+}
+
+.monaco-diff-editor .modified-in-monaco-diff-editor .minimap-decorations-layer,
+.monaco-diff-editor .modified-in-monaco-diff-editor .minimap-slider,
+.monaco-diff-editor .modified-in-monaco-diff-editor .minimap-shadow-hidden,
+.monaco-diff-editor .modified-in-monaco-diff-editor .minimap-shadow-visible {
+    background: transparent !important;
 }
 
 @media (max-width: 1040px) {

@@ -74,3 +74,32 @@ Este archivo define las reglas de desarrollo, especificaciones de la herramienta
 * **Causa:** Omisión de botones y lógica para llamar a `navigator.clipboard`.
 * **Solución:** Resuelto delegando el manejo nativo del portapapeles (con todos sus atajos) directamente a Monaco Editor en la refactorización v2.
 
+### [BUG-002] Toggle de minimapa no actualiza Monaco DiffEditor
+* **Fecha:** 2026-05-24
+* **Fallo:** El botón de minimapa cambiaba su estado visual, pero el minimapa no aparecía en la comparativa.
+* **Causa:** Se intentó actualizar la opción `minimap` solo desde el wrapper `DiffEditor`, sin forzar la actualización en los editores internos original y modificado.
+* **Solución:** Mantener el wrapper `DiffEditor` y el editor original sin minimapa, y activar el minimapa solo en `getModifiedEditor()` con `side: 'right'`, `size: 'proportional'` y `renderCharacters: false`.
+
+### [BUG-003] Minimap demasiado literal y opaco
+* **Fecha:** 2026-05-24
+* **Fallo:** El minimapa del panel modificado seguía pareciendo texto miniaturizado y se renderizaba con un fondo opaco que rompía la integración visual.
+* **Causa:** Faltaban opciones de minimapa más restrictivas (`maxColumn`, escala y slider) y colores de tema específicos para hacer transparente el minimapa.
+* **Solución:** Limitar el minimapa a bloques compactos sin caracteres (`renderCharacters: false`, `maxColumn`, `scale`) y definir colores `minimap.*` transparentes en los temas Monaco, reforzando la transparencia con CSS sobre el contenedor y canvas del minimapa.
+
+### [BUG-004] Minimap no comunica diferencias y queda demasiado pequeño
+* **Fecha:** 2026-05-24
+* **Fallo:** El minimapa se veía como texto miniaturizado, demasiado pequeño y sin marcas claras de diferencias.
+* **Causa:** Se redujo demasiado `maxColumn`, se bajó la opacidad del canvas y se dejó desactivado `renderOverviewRuler`, que es la capa de Monaco que mejor comunica cambios en el borde del editor.
+* **Solución:** Ampliar el minimapa del editor modificado (`maxColumn: 120`, `scale: 2`), mantenerlo sin caracteres y añadir decoraciones explícitas de cambios en minimap/overview ruler solo para el panel modificado.
+
+### [BUG-005] Marcas de diferencias poco visibles en minimap
+* **Fecha:** 2026-05-24
+* **Fallo:** Las diferencias en el minimapa del panel modificado se percibían demasiado tenues.
+* **Causa:** Las decoraciones usaban colores con alfa parcial y se dibujaban en el gutter del minimapa, ocupando muy poca superficie visual.
+* **Solución:** Usar colores opacos para las marcas de cambios y dibujarlas en `MinimapPosition.Inline` para que ocupen más área del minimapa.
+
+### [BUG-006] Pegado de texto desplaza la vista completa
+* **Fecha:** 2026-05-24
+* **Fallo:** Al pegar texto en un editor, Monaco podía desplazar la vista a otra zona del documento en lugar de mantener el contexto donde se realizó el pegado.
+* **Causa:** El `DiffEditor` recalculaba el diff tras cambios grandes y podía sincronizar/revelar rangos, alterando el `scrollTop` de los editores internos.
+* **Solución:** Capturar `scrollTop`/`scrollLeft` de ambos editores antes del evento `paste` y mantener un bloqueo temporal del scroll durante varios ciclos (`requestAnimationFrame`, timeouts cortos y eventos `onDidScrollChange`) para neutralizar los reposicionamientos asíncronos de Monaco.

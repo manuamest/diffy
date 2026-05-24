@@ -1,0 +1,17 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Portfolio Exact Background Color -->
+    <rect width="512" height="512" rx="120" fill="#09131F"/>
+    
+    <!-- Isometric Layer 1 (Bottom/Original) -->
+    <path d="M256 220 L110 295 L256 370 L402 295 Z" fill="#09131F" stroke="#005B8C" stroke-width="24" stroke-linejoin="round"/>
+    <path d="M110 295 V340 L256 415 L402 340 V295" fill="none" stroke="#005B8C" stroke-width="24" stroke-linejoin="round"/>
+    
+    <!-- Isometric Layer 2 (Top/Modified) -->
+    <path d="M256 120 L110 195 L256 270 L402 195 Z" fill="#09131F" stroke="#05B7FF" stroke-width="28" stroke-linejoin="round"/>
+    <path d="M110 195 V240 L256 315 L402 240 V195" fill="none" stroke="#05B7FF" stroke-width="28" stroke-linejoin="round"/>
+    
+    <!-- Abstract code lines on the top layer to represent a "file" -->
+    <path d="M170 190 L220 215" stroke="#05B7FF" stroke-width="16" stroke-linecap="round"/>
+    <path d="M280 175 L330 200" stroke="#05B7FF" stroke-width="16" stroke-linecap="round"/>
+    <path d="M190 165 L220 180" stroke="#05B7FF" stroke-width="16" stroke-linecap="round"/>
+</svg>
